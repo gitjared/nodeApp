@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.lightOn{display: none;}
+			.blueOn{display: none;}
+			.typing{display: none}
+
+			.box{background: red;width: 120px;height: 100px;text-align: center;padding: 10px;}
+		</style>
+		<title>Jared's JavaScript Training</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="jqueryTest.js"></script>
+		<script>
+			$(document).ready(function(){
+			$('.lightOff').click(function(){
+				$('.lightOff').hide();
+				$('.lightOn').show();
+				$('.blueOn').show();
+				$('body').css('background-color','black');
+			});
+
+			$('.lightOn').on('click',function(){
+				$('.lightOff').show();
+				$('.lightOn').hide();
+				$('.blueOn').hide();
+				$('body').css('background-color','white');
+			});
+
+			$('.blueOn').hover(function(){
+				$('.lightOff').show();
+				$('.blueOn').hide();
+				$('.lightOn').hide();
+				$('body').css('background-color','blue');
+			});
+
+			$('select').change(function(){
+				$('body').css('background-color', this.value)
+			});
+			$('input').focus(function(){
+				$('span').removeClass('typing');
+			});
+			$('input').blur(function(){
+				$('span').addClass('typing');
+			});
+
+
+			$('.box').mouseover(function(){
+				$('body').css('background-color','red');
+			});
+			$('.box').mouseout(function(){
+				$('body').css('background-color','blue');
+			});
+
+
+
+		});
+		</script>
+
+		</head>
+		<body>
+			<button class="lightOn">White Light On</button>
+			<button class="blueOn">Blue Light On</button>
+			<button class="lightOff">Turn Light Off</button>
+
+			<form>
+				<select>
+					<option value="White">Choose a Color</option>
+					<option value="red">Red Light</option>
+					<option value="green">Green Light</option>
+				</select>
+				<button>Clear</button>
+				<br>
+				<input type="text" placeholder="Click to focus" /><span class="typing">Start Typing...</span>
+			</form>
+
+			<div class="box">
+				<h2>Hover To Change</h2>
+			</div>
+
+		</body>
+</html>
